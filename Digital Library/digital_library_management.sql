@@ -13,6 +13,7 @@ CREATE TABLE Students (
     student_name VARCHAR2(100),
     course VARCHAR2(50),
     join_date DATE
+    status VARCHAR(20);
 );
 
 
@@ -35,11 +36,11 @@ INSERT INTO Books VALUES (5, 'C Programming', 'Programming', 'Arun');
 
 Select * from Books;
 
-INSERT INTO Students VALUES (101, 'Arun', 'BE', DATE '2021-06-10');
-INSERT INTO Students VALUES (102, 'Kumar', 'BCom', DATE '2020-07-15');
-INSERT INTO Students VALUES (103, 'Karthik', 'BCA', DATE '2019-08-20');
-INSERT INTO Students VALUES (104, 'Mari', 'BE', DATE '2022-01-05');
-INSERT INTO Students VALUES (105, 'Ramesh', 'BSc', DATE '2018-03-12');
+INSERT INTO Students VALUES (101, 'Arun', 'BE', DATE '2021-06-10','active');
+INSERT INTO Students VALUES (102, 'Kumar', 'BCom', DATE '2020-07-15','active');
+INSERT INTO Students VALUES (103, 'Karthik', 'BCA', DATE '2019-08-20','active');
+INSERT INTO Students VALUES (104, 'Mari', 'BE', DATE '2022-01-05','active');
+INSERT INTO Students VALUES (105, 'Ramesh', 'BSc', DATE '2018-03-12','active');
 
 Select * from Students;
 
@@ -69,7 +70,7 @@ GROUP BY b.category
 ORDER BY total_count DESC;
 
 
-UPDATE Students SET course = 'Inactive'
+UPDATE Students SET status = 'Inactive
 WHERE student_id NOT IN (
     SELECT student_id FROM Issuedbooks
     WHERE issue_date >= SYSDATE - 365*3
