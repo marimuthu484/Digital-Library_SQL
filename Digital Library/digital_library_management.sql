@@ -70,7 +70,7 @@ GROUP BY b.category
 ORDER BY total_count DESC;
 
 
-UPDATE Students SET status = 'Inactive
+UPDATE Students SET status = 'Inactive'
 WHERE student_id NOT IN (
     SELECT student_id FROM Issuedbooks
     WHERE issue_date >= SYSDATE - 365*3
